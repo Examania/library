@@ -1,4 +1,4 @@
-package com.examania.library.httpclient;
+package com.libexamania.library.httpclient;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -78,6 +78,7 @@ public class ExHttpClient {
 
     @NonNull
     private WebClient.ResponseSpec execute(){
+        httpMethod = (httpMethod==null)? HttpMethod.GET:httpMethod;
         WebClient.RequestBodyUriSpec requestBodyUriSpec = getWebClient()
                 .method(httpMethod);
         WebClient.RequestBodySpec requestBodySpec = requestBodyUriSpec;
@@ -86,8 +87,11 @@ public class ExHttpClient {
             String value = (String) mapElement.getValue();
             requestBodySpec = requestBodySpec.header(key,value);
         }
-        WebClient.RequestHeadersSpec requestHeadersSpec =requestBodySpec.body(body,bodyClass);
-        WebClient.ResponseSpec responseSpec = requestHeadersSpec.retrieve();
+        WebClient.RequestHeadersSpec requestHeadersSpec=null;
+        if(body!=null && bodyClass!=null) {
+            requestHeadersSpec= requestBodySpec.body(body, bodyClass);
+        }
+        WebClient.ResponseSpec responseSpec = (requestHeadersSpec==null)?requestBodySpec.retrieve():requestHeadersSpec.retrieve();
         responseSpec.onStatus(HttpStatus::isError, clientResponse -> Mono.error(error));
         return responseSpec;
     }

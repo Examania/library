@@ -1,4 +1,4 @@
-package com.examania.library;
+package com.libexamania.library;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

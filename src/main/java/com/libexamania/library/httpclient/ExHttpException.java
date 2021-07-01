@@ -1,4 +1,4 @@
-package com.examania.library.httpclient;
+package com.libexamania.library.httpclient;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

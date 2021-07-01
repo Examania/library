@@ -8,9 +8,9 @@
 		<version>2.5.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.examania</groupId>
+	<groupId>com.libexamania</groupId>
 	<artifactId>library</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.5</version>
 	<name>library</name>
 	<description>Common library for all the projects</description>
 	<properties>
@@ -55,6 +55,7 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+					<skip>true</skip>
 				</configuration>
 			</plugin>
 		</plugins>
