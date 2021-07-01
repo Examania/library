@@ -76,9 +76,13 @@ public class ExHttpClient {
         return this;
     }
 
+    private void init(){
+        httpMethod = (httpMethod==null)? HttpMethod.GET:httpMethod;
+    }
+
     @NonNull
     private WebClient.ResponseSpec execute(){
-        httpMethod = (httpMethod==null)? HttpMethod.GET:httpMethod;
+        init();
         WebClient.RequestBodyUriSpec requestBodyUriSpec = getWebClient()
                 .method(httpMethod);
         WebClient.RequestBodySpec requestBodySpec = requestBodyUriSpec;

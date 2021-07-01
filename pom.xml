@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.libexamania</groupId>
 	<artifactId>library</artifactId>
-	<version>0.0.5</version>
+	<version>0.0.8</version>
 	<name>library</name>
 	<description>Common library for all the projects</description>
 	<properties>
